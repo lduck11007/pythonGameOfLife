@@ -8,7 +8,7 @@ def main():
     system(clear)
     while True:
         printGrid(board)
-        #time.sleep(0.4)
+        time.sleep(timeDelay)
         system(clear)
         board = update(board)
 
@@ -49,8 +49,8 @@ def neighbours(x, y):
 def printGrid(grid):
     print "_"*101
     for i in grid:
-        print "{}{}{}".format("|", " ".join([str(x) for x in i]), "|").replace("0", " ").replace("1", "X")
-    print "{}{}{}".format("|", "_"*99, "|")
+        print "{0}{1}{0}".format("|", " ".join([str(x) for x in i])).replace("0", deadBlock).replace("1", aliveBlock)
+    print "{0}{1}{0}".format("|", "_"*99)
 
 isAlive = lambda x, y: bool(board[x][y])
 if __name__ == "__main__":
